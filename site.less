@@ -1,0 +1,362 @@
+.nosel {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 75px;
+    background-color: white;
+    opacity: 0.2;
+    z-index: 10;
+}
+
+.header2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 75px;
+    z-index: 11;
+
+    .buttons {
+        float: right;
+        height: 75px;
+        font-size: 0;
+
+        .button {
+            &:hover {
+                color: white;
+            }
+
+            .nosel();
+            display: inline-block;
+            font-size: 24px;
+            color: #c0c0c0;
+            height: 35px;
+            margin: 10px 20px 10px 0;
+            padding: 10px 20px;
+            text-align: center;
+            line-height: 35px;
+            //background-color: red;
+            cursor: pointer;
+        }
+    }
+}
+
+
+.wall {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    overflow: hidden;
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in;
+
+    &.show {
+        opacity: 1.0;
+        transition: opacity 0.5s ease-out;
+    }
+
+    img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+
+.tile {
+    width: 415px;
+    border-top: 10px solid #666;
+    margin: 0 20px 40px 0;
+    background-color: white;
+    position: absolute;
+    left: 75%;
+    top: 25%;
+    transform: translateX(-50%) translateY(-50%);
+
+    .content {
+        margin: 20px;
+        position: relative;
+        z-index: 10;
+
+        .title {
+            color: #666;
+            text-align: center;
+           font-size: 16px;
+        }
+
+        .subtitle {
+            color: #666;
+            text-align: center;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+
+        .copy-title {
+            margin-top: 20px;
+            color: black;
+            font-weight: 600;
+            font-size: 20px;
+
+        }
+
+        .copy {
+            margin-top: 2px;
+            line-height: 27px;
+            color: #666;
+            font-size: 20px;
+        }
+
+        .buttons {
+            height: 34px;
+        }
+    }
+}
+
+/*.button {
+    display: inline-block;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    color: black;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #808080;
+    opacity: 0.8;
+    font-family: 'Averia Serif Libre';
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+
+    &.sel {
+        background-color: white;
+    }
+}
+
+.background {
+    background-color: #f5f0da;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+
+    .background2 {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.background-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 150px;
+    overflow: hidden;
+    z-index: 15;
+
+    .background-mask2 {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.header {
+    @height: 75px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: @height;
+    z-index: 20;
+
+    .background {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: black;
+        opacity: 0.2;
+    }
+
+    .inner {
+        position: relative;
+        margin: 0 100px;
+        height: @height;
+
+        .left {
+            float: left;
+            height: @height;
+            line-height: @height;
+            font-size: 0;
+
+            img {
+                vertical-align: middle;
+                height: 35px;
+                margin-right: 40px;
+            }
+
+            .button-wrapper {
+                display: inline-block;
+                overflow: auto;
+            }
+            .button {
+                margin-right: 10px;
+                vertical-align: -6px;
+            }
+        }
+
+        .right {
+            float: right;
+            height: @height;
+            line-height: @height;
+            text-align: right;
+            font-size: 50px;
+            color: white;
+
+            span {
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.players-page {
+    margin: 140px 50px 50px 100px;
+    position: relative;
+    z-index: 10;
+    overflow: auto;
+
+    .top {
+        margin: 0 10px 70px;
+
+        .title {
+            margin-bottom: 50px;
+            font-size: 30px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .stuff {
+            @height: 35px;
+
+            font-size: 18px;
+            color: @colorLink;
+
+            .link {
+                height: @height;
+                line-height: @height;
+
+                .inner {
+                    display: inline-block;
+                    cursor: pointer;
+
+                    .fa {
+                        width: 30px;
+                        font-size: 24px;
+                    }
+                }
+            }
+        }
+    }
+
+    .players {
+        overflow: auto;
+    }
+
+    .tile {
+        float: left;
+        width: 415px;
+        height: 423px;
+        border-top: 10px solid #666;
+        margin: 0 20px 40px 0;
+        background-color: red;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .tile img {
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+
+    .tile:hover .full {
+        display: inline;
+    }
+
+    .tile .content {
+        margin: 20px;
+        position: relative;
+        z-index: 10;
+    }
+
+    .tile .content .title {
+        font-size: 30px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .tile .content .subtitle {
+        font-size: 20px;
+        color: white;
+    }
+
+    .tile .content .text {
+        margin-top: 160px;
+        font-size: 20px;
+        color: #666;
+    }
+
+    .tile:hover .content .text {
+        display: none;
+    }
+
+    .tile .mask {
+        background: -webkit-linear-gradient(top,rgba(255,255,255,0), rgba(255,255,255,1) 60%);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+
+    .tile:hover .mask {
+        display: none;
+    }
+}*/
