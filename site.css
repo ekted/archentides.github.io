@@ -87,8 +87,12 @@ body {
   background-color: white;
   position: absolute;
   left: 75%;
-  top: 25%;
-  transform: translateX(-50%) translateY(-50%);
+  top: 12%;
+  transform: translateX(-50%);
+  display: none;
+}
+.tile.show {
+  display: block;
 }
 .tile .content {
   margin: 20px;
