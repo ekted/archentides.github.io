@@ -67,8 +67,9 @@ body {
   bottom: 0;
   background-color: black;
   overflow: hidden;
+}
+.bg.preshow {
   opacity: 0;
-  transition: opacity 0.5s ease-in;
 }
 .bg.show {
   opacity: 1.0;
