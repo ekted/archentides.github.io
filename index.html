@@ -80,12 +80,24 @@
     </head>
 
     <body ng-controller="Main">
-        <div class="header"></div>
+        <div class="header">
+            <div class="logo">
+                <div class="vhelper"></div>
+                <img class="normal" src="images/ArchentidesSmall.png" alt=""/>
+                <img class="hover" src="images/ArchentidesSmallHover.png" alt=""/>
+            </div>
 
-        <div class="header2">
             <div class="buttons">
-                <div class="button" ng-click="prevStep()">&lt;&lt;</div>
-                <div class="button" ng-click="nextStep()">&gt;&gt;</div>
+                <div class="button" ng-click="prevStep()">
+                    <div class="vhelper"></div>
+                    <img class="normal" src="images/ArrowLeft.png" alt=""/>
+                    <img class="hover" src="images/ArrowLeftHover.png" alt=""/>
+                </div>
+                <div class="button" ng-click="nextStep()">
+                    <div class="vhelper"></div>
+                    <img class="normal" src="images/ArrowRight.png" alt=""/>
+                    <img class="hover" src="images/ArrowRightHover.png" alt=""/>
+                </div>
             </div>
         </div>
 
