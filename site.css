@@ -14,6 +14,25 @@ body {
   vertical-align: middle;
   height: 100%;
 }
+.siteButton {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  font-family: 'Libre Baskerville';
+  background-color: #0088cc;
+  color: white;
+  border-radius: 4px;
+  line-height: 34px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+.siteButton.inactive {
+  background-color: rgba(0, 136, 204, 0.3);
+  cursor: default;
+}
 .header {
   position: absolute;
   top: 0;
@@ -21,7 +40,7 @@ body {
   right: 0;
   height: 75px;
   z-index: 10;
-  background-color: #666666;
+  background-color: #999;
   font-size: 0;
 }
 .header .logo {
@@ -42,11 +61,43 @@ body {
 .header .logo img.hover {
   display: none;
 }
-.header .buttons {
+.header .nav {
+  margin-left: 40px;
+  float: left;
+  margin-top: 20px;
+}
+.header .nav .button {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  font-family: 'Libre Baskerville';
+  background-color: #0088cc;
+  color: white;
+  border-radius: 4px;
+  line-height: 34px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  float: left;
+  width: 93px;
+  margin-right: 10px;
+  background-color: #666;
+}
+.header .nav .button.inactive {
+  background-color: rgba(0, 136, 204, 0.3);
+  cursor: default;
+}
+.header .nav .button.current {
+  color: black;
+  background-color: white;
+}
+.header .arrows {
   float: right;
   height: 100%;
 }
-.header .buttons .button {
+.header .arrows .arrow {
   user-select: none;
   -ms-user-select: none;
   -moz-user-select: none;
@@ -59,26 +110,17 @@ body {
   text-align: center;
   cursor: pointer;
 }
-.header .buttons .button:hover img.normal {
+.header .arrows .arrow:hover img.normal {
   display: none;
 }
-.header .buttons .button:hover img.hover {
+.header .arrows .arrow:hover img.hover {
   display: initial;
 }
-.header .buttons .button img {
+.header .arrows .arrow img {
   vertical-align: middle;
 }
-.header .buttons .button img.hover {
+.header .arrows .arrow img.hover {
   display: none;
-}
-.wall {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: black;
-  overflow: hidden;
 }
 .bg {
   position: absolute;
@@ -146,8 +188,101 @@ body {
   color: #666;
   font-size: 20px;
 }
-.tile .content .buttons {
+.tile .content .copy a {
+  color: #666;
+}
+.tile .content .button-row {
   height: 34px;
+  text-align: center;
+  margin-top: 27px;
+  line-height: 34px;
+  color: #666;
+  font-weight: 600;
+}
+.tile .content .button-row .left,
+.tile .content .button-row .right {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  font-family: 'Libre Baskerville';
+  background-color: #0088cc;
+  color: white;
+  border-radius: 4px;
+  line-height: 34px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+.tile .content .button-row .left.inactive,
+.tile .content .button-row .right.inactive {
+  background-color: rgba(0, 136, 204, 0.3);
+  cursor: default;
+}
+.tile .content .button-row .left {
+  float: left;
+  height: 100%;
+  width: 93px;
+}
+.tile .content .button-row .right {
+  float: right;
+  height: 100%;
+  width: 93px;
+}
+.curtain {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.85;
+  z-index: 20;
+}
+.overlay-wrapper {
+  position: fixed;
+  width: 100%;
+  padding: 20px 0;
+  min-height: 100px;
+  z-index: 30;
+}
+.overlay-wrapper .overlay {
+  margin: 0 auto;
+  width: 820px;
+  padding: 70px;
+  box-sizing: border-box;
+  background-color: #d6d6ce;
+  color: black;
+  font-size: 20px;
+  line-height: 27px;
+}
+.overlay-wrapper .overlay .title {
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 27px;
+}
+.overlay-wrapper .overlay .copy {
+  margin-bottom: 27px;
+}
+.overlay-wrapper .overlay .group {
+  overflow: auto;
+}
+.overlay-wrapper .overlay img.right {
+  float: right;
+  width: 50%;
+  margin: 0 0 27px 27px;
+}
+.overlay-wrapper .overlay img.left {
+  float: left;
+  width: 30%;
+  margin: 0 27px 27px 0;
+}
+.overlay-wrapper .overlay .image {
+  font-size: 0;
+}
+.overlay-wrapper .overlay .image img {
+  text-align: center;
 }
 /*.button {
     display: inline-block;

@@ -1,3 +1,5 @@
+@lineHeight: 27px;
+
 .nosel {
     user-select: none;
     -ms-user-select: none;
@@ -17,6 +19,27 @@ body {
     height: 100%;
 }
 
+@buttonColor: #0088cc;
+@buttonHeight: 34px;
+
+.siteButton {
+    .nosel();
+    font-family: 'Libre Baskerville';
+    background-color: @buttonColor;
+    color: white;
+    border-radius: 4px;
+    line-height: @buttonHeight;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+
+    &.inactive {
+        background-color: fade(@buttonColor, 30%);
+        cursor: default;
+    }
+}
+
 .header {
     position: absolute;
     top: 0;
@@ -24,7 +47,7 @@ body {
     right: 0;
     height: 75px;
     z-index: 10;
-    background-color: rgb(102, 102, 102);
+    background-color: #999;
     font-size: 0;
 
     .logo {
@@ -52,11 +75,30 @@ body {
         }
     }
 
-    .buttons {
+    .nav {
+        margin-left: 40px;
+        float: left;
+        margin-top: 20px;
+
+        .button {
+            .siteButton();
+            float: left;
+            width: 93px;
+            margin-right: 10px;
+            background-color: #666;
+
+            &.current {
+                color: black;
+                background-color: white;
+            }
+        }
+    }
+
+    .arrows {
         float: right;
         height: 100%;
 
-        .button {
+        .arrow {
             &:hover {
                 img.normal {
                     display: none;
@@ -87,16 +129,6 @@ body {
     }
 }
 
-
-.wall {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: black;
-    overflow: hidden;
-}
 
 .bg {
     position: absolute;
@@ -174,10 +206,102 @@ body {
             line-height: 27px;
             color: #666;
             font-size: 20px;
+
+            a {
+                color: #666;
+            }
         }
 
-        .buttons {
-            height: 34px;
+        .button-row {
+            @buttonColor: #0088cc;
+
+            height: @buttonHeight;
+            text-align: center;
+            margin-top: @lineHeight;
+            line-height: @buttonHeight;
+            color: #666;
+            font-weight: 600;
+
+            .left, .right {
+                .siteButton();
+            }
+
+            .left {
+                float: left;
+                height: 100%;
+                width: 93px;
+            }
+
+            .right {
+                float: right;
+                height: 100%;
+                width: 93px;
+            }
+        }
+    }
+}
+
+.curtain {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: black;
+    opacity: 0.85;
+    z-index: 20;
+}
+
+.overlay-wrapper {
+    position: fixed;
+    width: 100%;
+    padding: 20px 0;
+    //background-color: lightpink;
+    min-height: 100px;
+    z-index: 30;
+
+    .overlay {
+        margin: 0 auto;
+        width: 820px;
+        padding: 70px;
+        box-sizing: border-box;
+        background-color: rgb(214, 214, 206);
+        color: black;
+        font-size: 20px;
+        line-height: @lineHeight;
+
+        .title {
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: @lineHeight;
+        }
+
+        .copy {
+            margin-bottom: @lineHeight;
+        }
+
+        .group {
+            overflow: auto;
+        }
+
+        img.right {
+            float: right;
+            width: 50%;
+            margin: 0 0 @lineHeight @lineHeight;
+        }
+
+        img.left {
+            float: left;
+            width: 30%;
+            margin: 0 @lineHeight @lineHeight 0;
+        }
+
+        .image {
+            font-size: 0;
+
+            img {
+                text-align: center;
+            }
         }
     }
 }

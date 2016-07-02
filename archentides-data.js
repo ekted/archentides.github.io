@@ -26,12 +26,15 @@ var archentidesData = {
             bg: '#969696',
             image: '104',
             copyTitle: 'Impending Rain',
-            copy: 'A thick fog has rolled in by the time the party reaches the source of the smoke.'
+            copy: 'A thick fog has rolled in by the time the party reaches the source of the smoke.',
+            position: 2
         },{
             bg: '#969696',
             image: '105',
             copyTitle: 'Disturbed Campsite',
-            copy: 'A small stream emerging from a natural crevice empties into the ocean near a campsite where a tent is partially collapsed. There is a rowboat nearby. A campfire is smoldering and there are signs of a scuffle around the tent. Some supplies are found, along with a <link>golden tablet<overlay> locked inside an iron chest.'
+            copy: 'A small stream emerging from a natural crevice empties into the ocean near a campsite where a tent is partially collapsed. \
+                    There is a rowboat nearby. A campfire is smoldering and there are signs of a scuffle around the tent. \
+                    Some supplies are found, along with a <a href="#" ng-click="overlay(\'a\')">golden tablet</a> locked inside an iron chest.'
         },{
             bg: '#969696',
             image: '106',
