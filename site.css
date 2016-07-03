@@ -249,7 +249,7 @@ body {
   bottom: 0;
   left: 0;
   right: -17px;
-  overflow-y: auto;
+  overflow-y: scroll;
   padding: 20px 0;
   z-index: 30;
   display: none;
@@ -259,7 +259,7 @@ body {
 }
 .overlay-wrapper .overlay {
   margin: 100% auto 0;
-  transition: margin-top 0.5s ease;
+  transition: margin-top 0.4s ease;
   width: 820px;
   padding: 70px;
   box-sizing: border-box;
