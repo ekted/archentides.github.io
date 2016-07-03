@@ -8,6 +8,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Arial;
+  overflow-x: hidden;
 }
 .vhelper {
   display: inline-block;
@@ -243,14 +244,22 @@ body {
   z-index: 20;
 }
 .overlay-wrapper {
-  position: fixed;
-  width: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: -17px;
+  overflow-y: auto;
   padding: 20px 0;
-  min-height: 100px;
   z-index: 30;
+  display: none;
+}
+.overlay-wrapper.show {
+  display: initial;
 }
 .overlay-wrapper .overlay {
-  margin: 0 auto;
+  margin: 100% auto 0;
+  transition: margin-top 0.5s ease;
   width: 820px;
   padding: 70px;
   box-sizing: border-box;
@@ -258,6 +267,9 @@ body {
   color: black;
   font-size: 20px;
   line-height: 27px;
+}
+.overlay-wrapper .overlay.slide {
+  margin-top: 0;
 }
 .overlay-wrapper .overlay .title {
   text-align: center;

@@ -11,6 +11,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial;
+    overflow-x: hidden;  // hide overlay scrollbar
 }
 
 .vhelper {
@@ -255,15 +256,24 @@ body {
 }
 
 .overlay-wrapper {
-    position: fixed;
-    width: 100%;
-    padding: 20px 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: -17px;  // hide scrollbar
+    overflow-y: auto;
     //background-color: lightpink;
-    min-height: 100px;
+    padding: 20px 0;
     z-index: 30;
+    display: none;
+
+    &.show {
+        display: initial;
+    }
 
     .overlay {
-        margin: 0 auto;
+        margin: 100% auto 0;
+        transition: margin-top 0.5s ease;
         width: 820px;
         padding: 70px;
         box-sizing: border-box;
@@ -271,6 +281,10 @@ body {
         color: black;
         font-size: 20px;
         line-height: @lineHeight;
+
+        &.slide {
+            margin-top: 0;
+        }
 
         .title {
             text-align: center;

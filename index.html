@@ -51,6 +51,15 @@
                     $scope.showOverlay = !$scope.showOverlay;
                 };
 
+                $scope.activateOverlay = function () {
+                    $scope.showOverlay = true;
+                    $scope.slideOverlay = false;
+
+                    $timeout(function () {
+                        $scope.slideOverlay = true;
+                    });
+                };
+
                 function setStep (initial) {
                     var index = 0;
 
@@ -74,16 +83,12 @@
                         step.show = true;
                     });
                 }
-
-                $scope.overlay = function (id) {
-                    $scope.showOverlay = true;
-                };
             });
         </script>
     </head>
 
     <body ng-controller="Main">
-        <div class="header" ng-click="toggleOverlay()">
+        <div class="header" ng-click="activateOverlay()">
             <div class="logo">
                 <div class="vhelper"></div>
                 <img class="normal" src="images/ArchentidesSmall.png" alt=""/>
@@ -130,10 +135,17 @@
 
         <div class="curtain" ng-show="showOverlay" ng-click="showOverlay=false;"></div>
 
-        <div class="overlay-wrapper" ng-show="showOverlay" ng-click="showOverlay=false;">
-            <div class="overlay">
+        <div class="overlay-wrapper" ng-class="{show:showOverlay}" ng-click="showOverlay=false;">
+            <div class="overlay" ng-class="{slide:slideOverlay}">
                 <div class="title">Golden Tablet</div>
                 <div class="copy">A plate of gold alloy roughly six inches wide by eight inches tall and 1/3” thick. It weighs about ten pounds. One side is etched with a demonic scene (below) with a decorated keyhole offset from center. There is no actual hole where the keyhole looks to be. The reverse side of the plate is flat and plain with no markings.</div>
+                <div class="group">
+                    <img class="right" src="images/Diamond.jpg" alt="" />
+                    <div class="copy">
+                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+                        <a href="#">nibh </a>
+                        euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+                </div>
                 <div class="group">
                     <img class="right" src="images/Diamond.jpg" alt="" />
                     <div class="copy">
