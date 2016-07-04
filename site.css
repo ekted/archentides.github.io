@@ -233,6 +233,12 @@ body {
   height: 100%;
   width: 93px;
 }
+.tile .end {
+  background-color: #ff6160;
+  color: white;
+  text-align: center;
+  padding: 8px 0;
+}
 .curtain {
   position: absolute;
   top: 0;

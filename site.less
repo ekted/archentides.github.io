@@ -1,5 +1,7 @@
 @lineHeight: 27px;
 
+@colorEndGame: rgb(255, 97, 96);
+
 .nosel {
     user-select: none;
     -ms-user-select: none;
@@ -242,6 +244,13 @@ body {
             }
         }
     }
+
+    .end {
+        background-color: @colorEndGame;
+        color: white;
+        text-align: center;
+        padding: 8px 0;
+    }
 }
 
 .curtain {
@@ -262,7 +271,6 @@ body {
     left: 0;
     right: -17px;  // hide scrollbar
     overflow-y: scroll;
-    //background-color: lightpink;
     padding: 20px 0;
     z-index: 30;
     display: none;

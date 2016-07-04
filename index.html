@@ -60,6 +60,10 @@
                     });
                 };
 
+                $scope.eatClick = function (ev) {
+                    ev.stopPropagation();
+                };
+
                 function setStep (initial) {
                     var index = 0;
 
@@ -88,7 +92,7 @@
     </head>
 
     <body ng-controller="Main">
-        <div class="header" ng-click="activateOverlay()">
+        <div class="header">
             <div class="logo">
                 <div class="vhelper"></div>
                 <img class="normal" src="images/ArchentidesSmall.png" alt=""/>
@@ -119,21 +123,22 @@
             <img ng-src="images/Map_{{step.image}}.png" src="" alt="" />
         </div>
 
-        <div class="tile" ng-class="{show:step.show||step.preshow}" ng-repeat="step in steps">
+        <div class="tile" ng-class="{show:step.show||step.preshow}" ng-repeat="step in steps" ng-click="activateOverlay()">
             <div class="content">
                 <div class="title">{{curSession.title}}</div>
                 <div class="subtitle">{{curSession.subtitle}}</div>
                 <div class="copy-title">{{step.copyTitle}}</div>
                 <div class="copy" ng-bind-html="step.copy"></div>
-                <div class="button-row">
+                <div class="button-row" ng-click="eatClick($event)">
                     <div class="left" ng-class="{inactive:$first}" ng-click="!$first&&prevStep()">Back</div>
                     <div class="right" ng-click="nextStep()">Next</div>
                     {{$index+1}} of {{steps.length}}
                 </div>
             </div>
+            <div class="end" ng-show="$last">End Game 1</div>
         </div>
 
-        <div class="curtain" ng-show="showOverlay" ng-click="showOverlay=false;"></div>
+        <div class="curtain" ng-class="{show:showOverlay}" ng-show="showOverlay" ng-click="showOverlay=false;"></div>
 
         <div class="overlay-wrapper" ng-class="{show:showOverlay}" ng-click="showOverlay=false;">
             <div class="overlay" ng-class="{slide:slideOverlay}">
@@ -143,7 +148,7 @@
                     <img class="right" src="images/Diamond.jpg" alt="" />
                     <div class="copy">
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                        <a href="#">nibh </a>
+                        <a href="#">nibh</a>
                         euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
                 </div>
                 <div class="group">
