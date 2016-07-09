@@ -34,6 +34,79 @@ body {
   background-color: rgba(0, 136, 204, 0.3);
   cursor: default;
 }
+.home .center {
+  position: relative;
+  z-index: 10;
+  margin: 70px auto 0;
+  width: 820px;
+  text-align: center;
+  font-size: 0;
+}
+.home .center .arch {
+  width: 802px;
+}
+.home .nav {
+  margin-top: 50px;
+  margin-bottom: 70px;
+  display: inline-block;
+  text-align: center;
+}
+.home .nav .button {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  font-family: 'Libre Baskerville';
+  background-color: #0088cc;
+  color: white;
+  border-radius: 4px;
+  line-height: 34px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  float: left;
+  width: 93px;
+  margin-right: 10px;
+  background-color: #666;
+}
+.home .nav .button:last-child {
+  margin-right: 0;
+}
+.home .nav .button.inactive {
+  background-color: rgba(0, 136, 204, 0.3);
+  cursor: default;
+}
+.home .button-row {
+  height: 34px;
+  text-align: center;
+  margin-top: 27px;
+  line-height: 34px;
+  color: #666;
+  font-weight: 600;
+}
+.home .button-row .more {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  font-family: 'Libre Baskerville';
+  background-color: #0088cc;
+  color: white;
+  border-radius: 4px;
+  line-height: 34px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  display: inline-block;
+  text-align: center;
+  height: 100%;
+  width: 93px;
+}
+.home .button-row .more.inactive {
+  background-color: rgba(0, 136, 204, 0.3);
+  cursor: default;
+}
 .header {
   position: absolute;
   top: 0;
@@ -51,6 +124,7 @@ body {
   padding: 0 10px;
   float: left;
   height: 100%;
+  cursor: pointer;
 }
 .header .logo:hover img.normal {
   display: none;
@@ -131,7 +205,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: black;
+  background-color: white;
   overflow: hidden;
 }
 .bg.preshow {
@@ -157,6 +231,26 @@ body {
   top: 12%;
   transform: translateX(-50%);
   display: none;
+}
+.tile.home {
+  margin: 0 auto 40px;
+  width: 560px;
+  position: initial;
+  transform: none;
+  overflow: auto;
+}
+.tile.home .content {
+  margin: 20px;
+}
+.tile.home .content .subtitle {
+  font-size: 20px;
+  color: black;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 600;
+}
+.tile.home .content .copy {
+  text-align: left;
 }
 .tile.show {
   display: block;

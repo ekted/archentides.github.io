@@ -43,6 +43,57 @@ body {
     }
 }
 
+.home {
+    .center {
+        position: relative;
+        z-index: 10;
+        margin: 70px auto 0;
+        width: 820px;
+        text-align: center;
+        font-size: 0;
+
+        .arch {
+            width: 802px;
+        }
+    }
+
+    .nav {
+        margin-top: 50px;
+        margin-bottom: 70px;
+        display: inline-block;
+        text-align: center;
+
+        .button {
+            &:last-child {
+                margin-right: 0;
+            }
+
+            .siteButton();
+            float: left;
+            width: 93px;
+            margin-right: 10px;
+            background-color: #666;
+        }
+    }
+
+    .button-row {
+        height: @buttonHeight;
+        text-align: center;
+        margin-top: @lineHeight;
+        line-height: @buttonHeight;
+        color: #666;
+        font-weight: 600;
+
+        .more {
+            .siteButton();
+            display: inline-block;
+            text-align: center;
+            height: 100%;
+            width: 93px;
+        }
+    }
+}
+
 .header {
     position: absolute;
     top: 0;
@@ -60,6 +111,7 @@ body {
         padding: 0 10px;
         float: left;
         height: 100%;
+        cursor: pointer;
 
         &:hover {
             img.normal {
@@ -141,7 +193,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: black;
+    background-color: white;
     overflow: hidden;
     //opacity: 0;
     //transition: opacity 0.5s ease-in;
@@ -163,6 +215,10 @@ body {
     }
 }
 
+
+
+
+
 .tile {
     width: 415px;
     border-top: 10px solid #666;
@@ -173,6 +229,30 @@ body {
     top: 12%;
     transform: translateX(-50%);
     display: none;
+
+    &.home {
+        margin: 0 auto 40px;
+        width: 560px;
+        position: initial;
+        transform: none;
+        overflow: auto;
+
+        .content {
+            margin: 20px;
+
+            .subtitle {
+                font-size: 20px;
+                color: black;
+                text-transform: none;
+                letter-spacing: normal;
+                font-weight: 600;
+            }
+
+            .copy {
+                text-align: left;
+            }
+        }
+    }
 
     &.show {
         display: block;

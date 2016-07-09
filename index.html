@@ -15,6 +15,7 @@
             var app = angular.module('dnd', []);
 
             app.controller('Main', function ($scope, $sce, $timeout) {
+                $scope.page = 'home';
                 $scope.data = archentidesData;
                 $scope.curSessionIndex = 0;
                 $scope.curSession = $scope.data.sessions[$scope.curSessionIndex];
@@ -37,6 +38,10 @@
 
                 $scope.curStep = 0;
                 setStep(true);
+
+                $scope.curpage = function (page) {
+                    return page === $scope.page;
+                };
 
                 $scope.prevStep = function () {
                     $scope.curStep = ($scope.curStep + $scope.curSession.steps.length - 1) % $scope.curSession.steps.length;
@@ -92,74 +97,104 @@
     </head>
 
     <body ng-controller="Main">
-        <div class="header">
-            <div class="logo">
-                <div class="vhelper"></div>
-                <img class="normal" src="images/ArchentidesSmall.png" alt=""/>
-                <img class="hover" src="images/ArchentidesSmallHover.png" alt=""/>
+        <div class="home" ng-show="curpage('home')">
+            <div class="bg">
+                <img src="images/HomeBG.png" alt="" />
             </div>
 
-            <div class="nav">
-                <div class="button current">Story</div>
-                <div class="button">Players</div>
-                <div class="button">Rules</div>
-            </div>
+            <div class="center">
+                <img class="arch" src="images/archentidesTitleDescriptor.svg" alt="" />
 
-            <div class="arrows">
-                <div class="arrow" ng-click="prevStep()">
+                <div class="nav">
+                    <div class="button" ng-click="page='story'">Story</div>
+                    <div class="button">Players</div>
+                    <div class="button">Rules</div>
+                </div>
+
+                <div class="tile home show">
+                    <div class="content">
+                        <div class="title">Last Game</div>
+                        <div class="subtitle">Caverns & Carnage</div>
+                        <div class="copy-title"></div>
+                        <div class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</div>
+                        <div class="button-row">
+                            <div class="more">More</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="curpage('story')">
+            <div class="header">
+                <div class="logo" ng-click="page='home'">
                     <div class="vhelper"></div>
-                    <img class="normal" src="images/ArrowLeft.png" alt=""/>
-                    <img class="hover" src="images/ArrowLeftHover.png" alt=""/>
+                    <img class="normal" src="images/ArchentidesSmall.png" alt=""/>
+                    <img class="hover" src="images/ArchentidesSmallHover.png" alt=""/>
                 </div>
-                <div class="arrow" ng-click="nextStep()">
-                    <div class="vhelper"></div>
-                    <img class="normal" src="images/ArrowRight.png" alt=""/>
-                    <img class="hover" src="images/ArrowRightHover.png" alt=""/>
+
+                <div class="nav">
+                    <div class="button current">Story</div>
+                    <div class="button">Players</div>
+                    <div class="button">Rules</div>
+                </div>
+
+                <div class="arrows">
+                    <div class="arrow" ng-click="prevStep()">
+                        <div class="vhelper"></div>
+                        <img class="normal" src="images/ArrowLeft.png" alt=""/>
+                        <img class="hover" src="images/ArrowLeftHover.png" alt=""/>
+                    </div>
+                    <div class="arrow" ng-click="nextStep()">
+                        <div class="vhelper"></div>
+                        <img class="normal" src="images/ArrowRight.png" alt=""/>
+                        <img class="hover" src="images/ArrowRightHover.png" alt=""/>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="bg" ng-class="{preshow:step.preshow,show:step.show}" ng-style="{background: step.bg}" ng-repeat="step in bgSteps">
-            <img ng-src="images/Map_{{step.image}}.png" src="" alt="" />
-        </div>
-
-        <div class="tile" ng-class="{show:step.show||step.preshow}" ng-repeat="step in steps" ng-click="activateOverlay()">
-            <div class="content">
-                <div class="title">{{curSession.title}}</div>
-                <div class="subtitle">{{curSession.subtitle}}</div>
-                <div class="copy-title">{{step.copyTitle}}</div>
-                <div class="copy" ng-bind-html="step.copy"></div>
-                <div class="button-row" ng-click="eatClick($event)">
-                    <div class="left" ng-class="{inactive:$first}" ng-click="!$first&&prevStep()">Back</div>
-                    <div class="right" ng-click="nextStep()">Next</div>
-                    {{$index+1}} of {{steps.length}}
-                </div>
+            <div class="bg" ng-class="{preshow:step.preshow,show:step.show}" ng-style="{background: step.bg}" ng-repeat="step in bgSteps">
+                <img ng-src="images/Map_{{step.image}}.png" src="" alt="" />
             </div>
-            <div class="end" ng-show="$last">End Game 1</div>
-        </div>
 
-        <div class="curtain" ng-class="{show:showOverlay}" ng-show="showOverlay" ng-click="showOverlay=false;"></div>
+            <div class="tile" ng-class="{show:step.show||step.preshow}" ng-repeat="step in steps" ng-click="activateOverlay()">
+                <div class="content">
+                    <div class="title">{{curSession.title}}</div>
+                    <div class="subtitle">{{curSession.subtitle}}</div>
+                    <div class="copy-title">{{step.copyTitle}}</div>
+                    <div class="copy" ng-bind-html="step.copy"></div>
+                    <div class="button-row" ng-click="eatClick($event)">
+                        <div class="left" ng-class="{inactive:$first}" ng-click="!$first&&prevStep()">Back</div>
+                        <div class="right" ng-click="nextStep()">Next</div>
+                        {{$index+1}} of {{steps.length}}
+                    </div>
+                </div>
+                <div class="end" ng-show="$last">End Game 1</div>
+            </div>
 
-        <div class="overlay-wrapper" ng-class="{show:showOverlay}" ng-click="showOverlay=false;">
-            <div class="overlay" ng-class="{slide:slideOverlay}">
-                <div class="title">Golden Tablet</div>
-                <div class="copy">A plate of gold alloy roughly six inches wide by eight inches tall and 1/3” thick. It weighs about ten pounds. One side is etched with a demonic scene (below) with a decorated keyhole offset from center. There is no actual hole where the keyhole looks to be. The reverse side of the plate is flat and plain with no markings.</div>
-                <div class="group">
-                    <img class="right" src="images/Diamond.jpg" alt="" />
-                    <div class="copy">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                        <a href="#">nibh</a>
-                        euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+            <div class="curtain" ng-class="{show:showOverlay}" ng-show="showOverlay" ng-click="showOverlay=false;"></div>
+
+            <div class="overlay-wrapper" ng-class="{show:showOverlay}" ng-click="showOverlay=false;">
+                <div class="overlay" ng-class="{slide:slideOverlay}">
+                    <div class="title">Golden Tablet</div>
+                    <div class="copy">A plate of gold alloy roughly six inches wide by eight inches tall and 1/3” thick. It weighs about ten pounds. One side is etched with a demonic scene (below) with a decorated keyhole offset from center. There is no actual hole where the keyhole looks to be. The reverse side of the plate is flat and plain with no markings.</div>
+                    <div class="group">
+                        <img class="right" src="images/Diamond.jpg" alt="" />
+                        <div class="copy">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+                            <a href="#">nibh</a>
+                            euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+                    </div>
+                    <div class="group">
+                        <img class="right" src="images/Diamond.jpg" alt="" />
+                        <div class="copy">
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
+                            <a href="#">nibh </a>
+                            euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
+                    </div>
+                    <img class="left" src="images/Diamond.jpg" alt="" />
+                    <div class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
                 </div>
-                <div class="group">
-                    <img class="right" src="images/Diamond.jpg" alt="" />
-                    <div class="copy">
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-                        <a href="#">nibh </a>
-                        euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
-                </div>
-                <img class="left" src="images/Diamond.jpg" alt="" />
-                <div class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</div>
             </div>
         </div>
     </body>
