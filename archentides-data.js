@@ -1,4 +1,43 @@
 var archentidesData = {
+    pages: [{
+        name: 'Story',
+        specials: [{
+            icon: 'file',
+            text: 'Campaign Introduction (12th of Reaping, 3814)'
+        }],
+        objects: [{
+            title: 'Sunken Hopes',
+            subtitle: '12th–14th of Reaping',
+            realDate: '10/3/15',
+            description: 'As unfamiliar with their whereabouts as they are with each other, the accidental companions do their best to stay alive, while determining what to do next.',
+            steps: []
+        },{title: 'Caves of the One-Eyes',
+            subtitle: '14th of Reaping',
+            realDate: '1/2/16',
+            description: 'Still trying to determine their location, the adventurers follow a crevice further inland, where they encounter dark, watery tunnels inhabited by one-eyed, goblin-like creatures.'
+        },{
+            title: 'The Wolves',
+            subtitle: '14th–17th of Reaping',
+            realDate: '2/13/16',
+            description: 'Emboldened by their success against the One Eyes, the party heads to the surface—and meet a curious group calling themselves “The Wolves”.'
+        },{
+            title: 'Pelley',
+            subtitle: '17th–18th of Reaping',
+            realDate: '9/3/16',
+            description: 'Having learned more about their predicament, the party is guided along a trail to Pelley, the main camp on this prisoners’ island called Scush.'
+        }]
+    },{
+        name: 'Players',
+        objects: [{
+
+        },{
+
+        },{
+
+        },{},{},{}]
+    },{
+        name: 'Items'
+    }],
     sessions: [{
         title: 'Game 1',
         subtitle: 'Sunken Hopes',
