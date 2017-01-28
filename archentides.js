@@ -35,11 +35,17 @@ app.controller('Main', function ($scope, $sce, $timeout) {
     };
 
     $scope.getImage = function (index, obj) {
-        if ($scope.page.imagesByName) {
-            return 'images/' + obj.title.toLowerCase() + '.jpg';
+        var name;
+
+        if (obj.imageName) {
+            name = obj.imageName;
+        } else if ($scope.page.imagesByName) {
+            name = obj.title;
         } else {
-            return 'images/' + $scope.page.name.toLowerCase() + (index+1) + '.jpg';
+            name = $scope.page.name;
         }
+
+        return 'images/' + name.toLowerCase() + '.jpg';
     };
 
     $scope.prevStep = function () {

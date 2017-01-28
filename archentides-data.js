@@ -43,6 +43,7 @@ var archentidesData = {
             description: 'Description here …'
         },{
             title: 'FØrd',
+            imageName: 'ford',
             subtitle: 'Human Rogue',
             description: 'The only son of a powerful duke, FØrd seeks a life far from large estates, false pleasantries and “important” guests. One of his father’s advisors, an elderly man named Aleister, has recently prodded FØrd along this path.'
         },{
