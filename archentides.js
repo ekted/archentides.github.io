@@ -34,6 +34,14 @@ app.controller('Main', function ($scope, $sce, $timeout) {
         return $scope.page.name.toUpperCase() === page.toUpperCase();
     };
 
+    $scope.getImage = function (index, obj) {
+        if ($scope.page.imagesByName) {
+            return 'images/' + obj.title.toLowerCase() + '.jpg';
+        } else {
+            return 'images/' + $scope.page.name.toLowerCase() + (index+1) + '.jpg';
+        }
+    };
+
     $scope.prevStep = function () {
         $scope.curStep = ($scope.curStep + $scope.curSession.steps.length - 1) % $scope.curSession.steps.length;
         setStep();

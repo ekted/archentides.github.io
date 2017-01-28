@@ -86,13 +86,13 @@
             </div>
 
             <div class="tiles">
-                <div class="tile" ng-repeat="obj in page.objects | filter:orderBy:'-'">
-                    <img class="bg" src="images/story-{{$index+1}}.jpg" alt="" />
+                <div class="tile" ng-repeat="obj in page.objects">
+                    <img class="bg" ng-src="{{getImage($index, obj)}}" alt="" />
                     <div class="mask"></div>
                     <div class="content">
                         <div class="name">{{obj.title}}</div>
                         <div class="date">{{obj.subtitle}}</div>
-                        <div class="race-class" ng-show="obj.race-class">Human Cleric</div>
+                        <!--<div class="race-class" ng-show="obj.race-class">Human Cleric</div>-->
                         <div class="char-desc">{{obj.description}}</div>
                     </div>
 

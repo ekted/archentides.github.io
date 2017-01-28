@@ -28,13 +28,52 @@ var archentidesData = {
         }]
     },{
         name: 'Players',
+        imagesByName: true,
         objects: [{
-
+            title: 'Elethea',
+            subtitle: 'Human Cleric',
+            description: 'Elethea is a devotee of Pelor—the Shining One. Wherever she goes she brings caring, strenth and compassion for those in need. Restless in her work at Pelor’s temple in Westcourt, Elethea has felt a calling to seek a new path.'
         },{
-
+            title: 'Ember',
+            subtitle: 'Half-Elf Monk',
+            description: 'Left an orphan at only four months old, Ember was taken in by the Sanipa—a monastic society near Westcourt. Now a novice of the Nine Precepts, Ember is ready to follow her path beyond the monastery walls.'
         },{
-
-        },{},{},{}]
+            title: 'Falconer',
+            subtitle: 'Half-Elf Bard',
+            description: 'Description here …'
+        },{
+            title: 'FØrd',
+            subtitle: 'Human Rogue',
+            description: 'The only son of a powerful duke, FØrd seeks a life far from large estates, false pleasantries and “important” guests. One of his father’s advisors, an elderly man named Aleister, has recently prodded FØrd along this path.'
+        },{
+            title: 'Guinness',
+            subtitle: 'Human Ranger',
+            description: 'Guinness is a natural leader and protector of Tarnstead—a hamlet in Northern Taldar. He has been the local champion in the archery contest for three consecutive years at The Rose of Sarton Festival.'
+        },{
+            title: 'Juulikov',
+            subtitle: 'Gnome Illusionist',
+            description: 'This self-proclaimed “Trickster of the Wood” grew up in Ceev. For the last ten years or so Juulikov has been living with his twin sister, Mirage, in Northern Taldar, deceiving the innocent at every opportunity.'
+        },{
+            title: 'Koranar',
+            subtitle: 'Half-Orc Barbarian',
+            description: 'This half-breed hails from the deep south in Ormenth but specifically where, he doesn’t recall. Recently, he’s been pursued by a band of human brutes auspiciously named “The Orc Slayers,” for reasons unknown.'
+        },{
+            title: 'Korben',
+            subtitle: 'Human Fighter',
+            description: 'Description here …'
+        },{
+            title: 'Maedhroth',
+            subtitle: 'Half-Elf Druid',
+            description: 'This druid of Obad-Hai has spent most of his life among the hidden groves of northern Taldar. Maedhroth has recently been sent on his first mission on behalf of his lifelong mentor, Beirenzia the Fair.'
+        },{
+            title: 'Mirage',
+            subtitle: 'Gnome Wizard',
+            description: 'The slightly more academic twin of Juulikov. For Mirage, magic is essential to life, like breathing air. When she was three she “accidentally” caused a flask of waspberry juice to pour onto her brother’s head.'
+        },{
+            title: 'Rodgar',
+            subtitle: 'Dwarf Barbarian',
+            description: 'Rodgar’s best friend is his reliable axe, “Spalten”. He has recently been discharged from King Rivon’s army for disorderly conduct. He has struck out on his own, seeking fortune to the west—beyond Moor Drunen’s borders.'
+        }]
     },{
         name: 'Items'
     }],
