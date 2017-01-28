@@ -42,7 +42,7 @@ app.controller('Main', function ($scope, $sce, $timeout) {
         } else if ($scope.page.imagesByName) {
             name = obj.title;
         } else {
-            name = $scope.page.name;
+            name = $scope.page.name + '-' + (index + 1);
         }
 
         return 'images/' + name.toLowerCase() + '.jpg';
