@@ -32,6 +32,9 @@ body {
   font-weight: 600;
   letter-spacing: 0.5px;
 }
+.siteButton:hover {
+  background-color: #006699;
+}
 .siteButton.inactive {
   background-color: rgba(0, 136, 204, 0.3);
   cursor: default;
@@ -76,6 +79,12 @@ body {
 .home .nav .button:last-child {
   margin-right: 0;
 }
+.home .nav .button.x:hover {
+  background-color: #649d9e;
+}
+.home .nav .button:hover {
+  background-color: #006699;
+}
 .home .nav .button.inactive {
   background-color: rgba(0, 136, 204, 0.3);
   cursor: default;
@@ -106,6 +115,9 @@ body {
   text-align: center;
   height: 100%;
   width: 93px;
+}
+.home .button-row .more:hover {
+  background-color: #006699;
 }
 .home .button-row .more.inactive {
   background-color: rgba(0, 136, 204, 0.3);
@@ -164,6 +176,9 @@ body {
   width: 93px;
   margin-right: 10px;
   background-color: #959595;
+}
+.header .nav .button:hover {
+  background-color: #006699;
 }
 .header .nav .button.inactive {
   background-color: rgba(0, 136, 204, 0.3);
@@ -325,6 +340,9 @@ body {
   width: 93px;
   display: none;
 }
+.index .tile .more:hover {
+  background-color: #006699;
+}
 .index .tile .more.inactive {
   background-color: rgba(0, 136, 204, 0.3);
   cursor: default;
@@ -422,6 +440,10 @@ body {
   font-weight: 600;
   letter-spacing: 0.5px;
 }
+.tile .content .button-row .left:hover,
+.tile .content .button-row .right:hover {
+  background-color: #006699;
+}
 .tile .content .button-row .left.inactive,
 .tile .content .button-row .right.inactive {
   background-color: rgba(0, 136, 204, 0.3);
@@ -437,119 +459,123 @@ body {
   height: 100%;
   width: 93px;
 }
-/*.tile {
-    width: 415px;
-    border-top: 10px solid #666;
-    margin: 0 20px 40px 0;
-    background-color: white;
-    position: absolute;
-    left: 75%;
-    top: 12%;
-    transform: translateX(-50%);
-    display: none;
-
-    &.home {
-        margin: 0 auto 40px;
-        width: 560px;
-        position: initial;
-        transform: none;
-        overflow: auto;
-
-        .content {
-            margin: 20px;
-
-            .subtitle {
-                font-size: 20px;
-                color: black;
-                text-transform: none;
-                letter-spacing: normal;
-                font-weight: 600;
-            }
-
-            .copy {
-                text-align: left;
-            }
-        }
-    }
-
-    &.show {
-        display: block;
-    }
-
-    .content {
-        margin: 20px;
-        position: relative;
-        z-index: 10;
-
-        .title {
-            color: #666;
-            text-align: center;
-            font-size: 16px;
-            margin-bottom: 4px;
-        }
-
-        .subtitle {
-            color: #666;
-            text-align: center;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-size: 16px;
-        }
-
-        .copy-title {
-            margin-top: 20px;
-            color: black;
-            font-weight: 600;
-            font-size: 20px;
-
-        }
-
-        .copy {
-            margin-top: 2px;
-            line-height: 27px;
-            color: #666;
-            font-size: 20px;
-
-            a {
-                color: #666;
-            }
-        }
-
-        .button-row {
-            @buttonColor: #0088cc;
-
-            height: @buttonHeight;
-            text-align: center;
-            margin-top: @lineHeight;
-            line-height: @buttonHeight;
-            color: #666;
-            font-weight: 600;
-
-            .left, .right {
-                .siteButton();
-            }
-
-            .left {
-                float: left;
-                height: 100%;
-                width: 93px;
-            }
-
-            .right {
-                float: right;
-                height: 100%;
-                width: 93px;
-            }
-        }
-    }
-
-    .end {
-        background-color: @colorEndGame;
-        color: white;
-        text-align: center;
-        padding: 8px 0;
-    }
-}*/
+.tile2 {
+  width: 415px;
+  border-top: 10px solid #666;
+  margin: 0 20px 40px 0;
+  background-color: white;
+  position: absolute;
+  left: 75%;
+  top: 12%;
+  transform: translateX(-50%);
+  display: none;
+}
+.tile2.home {
+  margin: 0 auto 40px;
+  width: 560px;
+  position: initial;
+  transform: none;
+  overflow: auto;
+}
+.tile2.home .content {
+  margin: 20px;
+}
+.tile2.home .content .subtitle {
+  font-size: 20px;
+  color: black;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 600;
+}
+.tile2.home .content .copy {
+  text-align: left;
+}
+.tile2.show {
+  display: block;
+}
+.tile2 .content {
+  margin: 20px;
+  position: relative;
+  z-index: 10;
+}
+.tile2 .content .title {
+  color: #666;
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+.tile2 .content .subtitle {
+  color: #666;
+  text-align: center;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+.tile2 .content .copy-title {
+  margin-top: 20px;
+  color: black;
+  font-weight: 600;
+  font-size: 20px;
+}
+.tile2 .content .copy {
+  margin-top: 2px;
+  line-height: 27px;
+  color: #666;
+  font-size: 20px;
+}
+.tile2 .content .copy a {
+  color: #666;
+}
+.tile2 .content .button-row {
+  height: 34px;
+  text-align: center;
+  margin-top: 27px;
+  line-height: 34px;
+  color: #666;
+  font-weight: 600;
+}
+.tile2 .content .button-row .left,
+.tile2 .content .button-row .right {
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  font-family: 'Open Sans';
+  background-color: #0088cc;
+  color: white;
+  border-radius: 4px;
+  line-height: 34px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.tile2 .content .button-row .left:hover,
+.tile2 .content .button-row .right:hover {
+  background-color: #006699;
+}
+.tile2 .content .button-row .left.inactive,
+.tile2 .content .button-row .right.inactive {
+  background-color: rgba(0, 136, 204, 0.3);
+  cursor: default;
+}
+.tile2 .content .button-row .left {
+  float: left;
+  height: 100%;
+  width: 93px;
+}
+.tile2 .content .button-row .right {
+  float: right;
+  height: 100%;
+  width: 93px;
+}
+.tile2 .end {
+  background-color: #ff6160;
+  color: white;
+  text-align: center;
+  padding: 8px 0;
+}
 .curtain {
   position: absolute;
   top: 0;

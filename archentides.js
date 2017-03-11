@@ -1,6 +1,7 @@
 var app = angular.module('dnd', []);
 
 app.controller('Main', function ($scope, $sce, $timeout) {
+    $scope.pageLevel = 0;
     $scope.homePage = {name: 'home'};
     $scope.page = $scope.homePage;
     $scope.data = archentidesData;
@@ -26,8 +27,9 @@ app.controller('Main', function ($scope, $sce, $timeout) {
     $scope.curStep = 0;
     setStep(true);
 
-    $scope.setPage = function (page) {
+    $scope.setPage = function (page, level) {
         $scope.page = page;
+        $scope.pageLevel = level;
     };
 
     $scope.isPage = function (page) {

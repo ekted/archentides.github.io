@@ -4,7 +4,6 @@
         <title>ARCHENTIDES</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
         <meta name="viewport" content="initial-scale=0.3, width=device-width" />
-        <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic,700" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" />
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="site.css" rel="stylesheet" type="text/css" />
@@ -20,17 +19,15 @@
             <img ng-src="images/{{page.name.toLowerCase()}}.jpg" alt="" />
         </div>
 
-        <div class="header" ng-hide="isPage('home')">
-            <div class="logo" ng-click="setPage(homePage)">
+        <div class="header" ng-if="pageLevel!=0">
+            <div class="logo" ng-click="setPage(homePage,0)">
                 <div class="vhelper"></div>
                 <img class="normal" src="images/ArchentidesSmall.png" alt=""/>
                 <img class="hover" src="images/ArchentidesSmallHover.png" alt=""/>
             </div>
 
-            <div class="nav">
-                <div class="button current">Story</div>
-                <div class="button">Players</div>
-                <div class="button">Rules</div>
+            <div class="nav x">
+                <div class="button" ng-class="{current:page==pg}" ng-click="setPage(pg,1)" ng-repeat="pg in data.pages">{{pg.name}}</div>
             </div>
 
             <div class="arrows">
@@ -47,16 +44,16 @@
             </div>
         </div>
 
-        <div class="home" ng-show="isPage('home')">
-            <div class="page-bg">
+        <div class="home" ng-if="pageLevel==0">
+<!--            <div class="page-bg">
                 <img src="images/Map_HomeBG.png" alt="" />
-            </div>
+            </div>-->
 
             <div class="center">
                 <img class="arch" src="images/archentidesTitleDescriptor.svg" alt="" />
 
                 <div class="nav">
-                    <div class="button" ng-click="setPage(page)" ng-repeat="page in data.pages">{{page.name}}</div>
+                    <div class="button" ng-click="setPage(page,1)" ng-repeat="page in data.pages">{{page.name}}</div>
                 </div>
 
                 <div class="tile">
@@ -66,14 +63,14 @@
                         <div class="copy-title"></div>
                         <div class="copy">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</div>
                         <div class="button-row">
-                            <div class="more">More</div>
+                            <div class="more" ng-click="setPage(page,2)">More</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="index" ng-if="!isPage('home')">
+        <div class="index" ng-if="pageLevel==1">
             <div class="index-header">
                 <div class="name">{{page.name}}</div>
 
@@ -96,17 +93,17 @@
                         <div class="char-desc">{{obj.description}}</div>
                     </div>
 
-                    <div class="more">More</div>
+                    <div class="more" ng-click="setPage(obj,2)">More</div>
                 </div>
             </div>
         </div>
 
-        <div ng-show="isPage('storyx')">
+        <div class="details" ng-if="pageLevel==2">
             <div class="page-bg" ng-class="{preshow:step.preshow,show:step.show}" ng-style="{background: step.bg}" ng-repeat="step in bgSteps">
                 <img ng-src="images/Map_{{step.image}}.png" src="" alt="" />
             </div>
 
-            <div class="tile" ng-class="{show:step.show||step.preshow}" ng-repeat="step in steps" ng-click="activateOverlay()">
+            <div class="tile2" ng-class="{show:step.show||step.preshow}" ng-repeat="step in steps" ng-click="activateOverlay()">
                 <div class="content">
                     <div class="title">{{curSession.title}}</div>
                     <div class="subtitle">{{curSession.subtitle}}</div>
