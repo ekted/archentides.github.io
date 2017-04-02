@@ -450,38 +450,15 @@ body {
 
 .tile2 {
     width: 415px;
-    border-top: 10px solid #666;
+    //border-top: 10px solid #666;
     margin: 0 20px 40px 0;
     background-color: white;
+    border-radius: 4px;
     position: absolute;
     left: 75%;
     top: 12%;
     transform: translateX(-50%);
     display: none;
-
-    &.home {
-        margin: 0 auto 40px;
-        width: 560px;
-        position: initial;
-        transform: none;
-        overflow: auto;
-
-        .content {
-            margin: 20px;
-
-            .subtitle {
-                font-size: 20px;
-                color: black;
-                text-transform: none;
-                letter-spacing: normal;
-                font-weight: 600;
-            }
-
-            .copy {
-                text-align: left;
-            }
-        }
-    }
 
     &.show {
         display: block;
@@ -512,7 +489,6 @@ body {
             color: black;
             font-weight: 600;
             font-size: 20px;
-
         }
 
         .copy {

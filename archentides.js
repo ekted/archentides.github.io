@@ -5,32 +5,28 @@ app.controller('Main', function ($scope, $sce, $timeout) {
     $scope.homePage = {name: 'home'};
     $scope.page = $scope.homePage;
     $scope.data = archentidesData;
-    $scope.curSessionIndex = 0;
-    $scope.curSession = $scope.data.sessions[$scope.curSessionIndex];
-    $scope.bgSteps = $.merge([], $scope.curSession.steps);
-    $scope.steps = $.merge([], $scope.curSession.steps);
+    $scope.curTile = null;
+    $scope.bgSteps = null;
+    $scope.steps = null;
     $scope.showOverlay = false;
 
-    for (var i = 0; i < $scope.bgSteps.length; i++) {
-        $scope.bgSteps[i].index = i;
-    }
+    (function () {
+        for (var i = 0; i < $scope.data.pages.length; i++) {
+            var page = $scope.data.pages[i];
 
-    for (var i = 0; i < $scope.data.sessions.length; i++) {
-        var session = $scope.data.sessions[i];
+            for (var j = 0; j < page.tiles.length; j++) {
+                var tile = page.tiles[j];
 
-        for (var j = 0; j < session.steps.length; j++) {
-            var step = session.steps[j];
-            step.copy = $sce.trustAsHtml(step.copy);
+                if (tile.steps) {
+                    for (var k = 0; k < tile.steps.length; k++) {
+                        var step = tile.steps[k];
+                        step.imageUrl = 'images/Map_' + (j + 1) + '-' + (k + 1) + '.png';
+                        step.copyHtml = $sce.trustAsHtml(step.copy);
+                    }
+                }
+            }
         }
-    }
-
-    $scope.curStep = 0;
-    setStep(true);
-
-    $scope.setPage = function (page, level) {
-        $scope.page = page;
-        $scope.pageLevel = level;
-    };
+    })();
 
     $scope.isPage = function (page) {
         return $scope.page.name.toUpperCase() === page.toUpperCase();
@@ -51,29 +47,51 @@ app.controller('Main', function ($scope, $sce, $timeout) {
     };
 
     $scope.prevStep = function () {
-        $scope.curStep = ($scope.curStep + $scope.curSession.steps.length - 1) % $scope.curSession.steps.length;
+        $scope.curStep = ($scope.curStep + $scope.curTile.steps.length - 1) % $scope.curTile.steps.length;
         setStep();
     };
+
     $scope.nextStep = function () {
-        $scope.curStep = ($scope.curStep + 1) % $scope.curSession.steps.length;
+        $scope.curStep = ($scope.curStep + 1) % $scope.curTile.steps.length;
         setStep();
     };
 
-    $scope.toggleOverlay = function () {
-        $scope.showOverlay = !$scope.showOverlay;
-    };
-
-    $scope.activateOverlay = function () {
-        $scope.showOverlay = true;
-        $scope.slideOverlay = false;
+    $scope.activateOverlay = function (on) {
+        $scope.showOverlay = on;
+        $scope.slideOverlay = !on;
 
         $timeout(function () {
-            $scope.slideOverlay = true;
+            $scope.slideOverlay = on;
         });
     };
 
     $scope.eatClick = function (ev) {
         ev.stopPropagation();
+    };
+
+    $scope.setPage = function (page, level) {
+        $scope.page = page;
+        $scope.pageLevel = level;
+
+        if (level === 2) {
+            $scope.curTile = $scope.page;
+
+            if ($scope.page.steps) {
+                $scope.bgSteps = $.merge([], $scope.page.steps);
+                $scope.steps = $.merge([], $scope.page.steps);
+                $scope.curStep = 0;
+
+                for (var i = 0; i < $scope.bgSteps.length; i++) {
+                    $scope.bgSteps[i].index = i;
+                }
+
+                setStep(true);
+            } else {
+                $scope.bgSteps = [];
+                $scope.steps = [];
+
+            }
+        }
     };
 
     function setStep (initial) {
