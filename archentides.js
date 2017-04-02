@@ -9,10 +9,15 @@ app.controller('Main', function ($scope, $sce, $timeout) {
     $scope.bgSteps = null;
     $scope.steps = null;
     $scope.showOverlay = false;
+    $scope.last = null;
 
     (function () {
         for (var i = 0; i < $scope.data.pages.length; i++) {
             var page = $scope.data.pages[i];
+
+            if (page.name.toLowerCase() === 'story') {
+                $scope.last = page.tiles[page.tiles.length - 1];
+            }
 
             for (var j = 0; j < page.tiles.length; j++) {
                 var tile = page.tiles[j];
